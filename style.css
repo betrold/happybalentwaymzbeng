@@ -1,0 +1,115 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2acac;
+    font-family: 'Mochiy Pop P One', sans-serif;
+}
+
+input#open {
+    display: none;
+}
+
+
+
+.valentines-day-card {
+    position: relative;
+    width: 500px;
+    height: 750px;
+    transform-style: preserve-3d;
+    transform: perspective(2500px);
+    transition: .3s;
+}
+
+.card-front {
+    position: relative;
+    background-image: url("cover.png");
+    width: 500px;
+    height: 750px;
+    transform-origin: left;
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,.15), 30px 0 50px rgba(0,0,0,0.3);
+    transition: .3s;
+}
+
+.card-inside {
+    position: absolute;
+    background-image: url("inside.png");
+    width: 500px;
+    height: 750px;
+    z-index:-1;
+    left:0;
+    top:0;
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,0.22), 100px 20px 100px rgba(0,0,0,0.1);
+    transform-origin: left;
+    transition: .3s;
+}
+.card-inside2 {
+    position: absolute;
+    background-image: url("hvd.png");
+    width: 500px;
+    height: 750px;
+    z-index:-2;
+    left:0;
+    top:0;
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,0.22), 100px 20px 100px rgba(0,0,0,0.1);
+}
+
+
+
+.open {
+    position: absolute;
+    width: 500px;
+    height: 750px;
+    left:0;
+    top:0;
+    background-color: transparent;
+    z-index:1;
+    cursor: pointer;
+}
+.open2 {
+    position: flex;
+    width: 500px;
+    height: 750px;
+    left:0;
+    top:0;
+    background-color: transparent;
+    z-index:0;
+    cursor: pointer;
+}
+
+
+#open:checked ~ .card-front {
+    transform: rotateY(-180deg);
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,.13), 30px 0 50px rgba(0,0,0,0.1);
+    background-color: transparent;
+}
+
+#open2:checked ~ .card-inside {
+    transform: rotateY(-180deg);
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,.13), 30px 0 50px rgba(0,0,0,0.1);
+}
+
+
+
+
+
+
+
+@keyframes close {
+    0%, 100% {
+        transform: scale(1, .05);
+    }
+    5%, 95% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes beat {
+    0%, 40%, 100% {
+        transform: scale(1) rotate(-45deg);
+    }
+    25%, 60% {
+        transform: scale(1.1) rotate(-45deg);
+    }
+}
